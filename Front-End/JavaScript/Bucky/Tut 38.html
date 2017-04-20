@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Tut 38</title>
+        <script type="text/javascript">
+            function validator()
+            {
+                if (document.formy.thebox.checked)
+                {
+                    alert("Checked!");
+                }
+                else {
+                    alert("Nada!");
+                }
+            }</script>
+    </head>
+    <body>
+        <form name="formy">
+            <input type="checkbox" name="thebox"  />
+            User Name: <input type="text"  />
+            Password: <input type="password"  />
+            <input type="submit" value="Submit!" onclick="validator()"/>
+        </form>
+
+        <script type="text/javascript">
+            var x = document.forms[0].length;
+            document.write(x);
+        </script>
+    </body>
+</html>
