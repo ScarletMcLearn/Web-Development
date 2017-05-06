@@ -1,0 +1,4 @@
+To Do / To Fix:
+
+1) Post Model not showing on Admin page
+    https://pastebin.com/A2QiLEhp
