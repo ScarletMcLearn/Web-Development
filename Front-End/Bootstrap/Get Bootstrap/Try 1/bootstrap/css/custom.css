@@ -1,0 +1,36 @@
+.input-group
+{
+    text-align: right;
+}
+
+#translate-button
+{
+    display: block; width: 100%;
+}
+
+body
+{
+    /*background-color: #566573;*/
+}
+
+.jumbotron{
+color: #FFFFFF;
+background-color: DARKSLATEGREY;
+/*background-color:none !important;*/
+}
+
+
+#header
+{
+    padding-top: 20px;
+}
+
+#htcs
+{
+    background-color: white;
+}
+
+.card
+{
+    padding-top: 60px;
+}
