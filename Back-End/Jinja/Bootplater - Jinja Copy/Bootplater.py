@@ -65,7 +65,7 @@ def html_file_maker(html, name):
     file.close()
 
 
-def generate_template_package(left_link_names, right_link_names, site_name= "WRITE_SITE_NAME"):
+def generate_template_package(left_link_names, right_link_names, site_name= "Ass Fart!"):
     combined_list = left_link_names + right_link_names
 
 
@@ -74,57 +74,41 @@ def generate_template_package(left_link_names, right_link_names, site_name= "WRI
             checker = True
         else:
             checker = False
-        html = generate_naved_template(left_link_names, right_link_names, checker=checker, item_number= item, site_name= site_name)
+        html = generate_naved_template(left_link_names, right_link_names, checker=checker, item_number= item, site_name= "Ass Fart!")
         html_file_maker(html, combined_list[item])
 
 
 
-def completion_message():
-    print("Done!")
-    print("Your HTML Files have been generated!")
+def main():
+        create_index_html()
+
+########################################
+
+# eita lagbe - uncomment on final edition
+# if __name__ == "__main__":
+#     main()
 
 
+left_link_names = ['Home', 'Link 1', 'Link 2']
+right_link_names = ['About Us', 'Log In', 'Sign Up']
 
-def main(left_link_names, right_link_names, site_name):
-        generate_template_package(left_link_names, right_link_names, site_name)
-        completion_message()
-
-
-
-# A More Direct Approach - COMMENT OUT INTERACTIVE WIZARD (START TO END) AND UNCOMMENT THIS TO RUN DIRECTLY
-# left_link_names = ['Home', 'Link 1', 'Link 2']
-# right_link_names = ['About Us', 'Log In', 'Sign Up']
-# site_name = "TryOut!"
-
-
-# Interactive Wizard - START
-number_of_links = input("Please enter the number of items in your navbar: ")
-
-number_of_left_links = input("Please enter how many of the " + number_of_links + " is in the left navbar: ")
-
-number_of_links = int(number_of_links)
-number_of_left_links = int(number_of_left_links)
-number_of_right_links = number_of_links - number_of_left_links
-
-left_link_names = []
-right_link_names = []
-site_name = ""
-
-for i in range(0, number_of_left_links):
-    value = input("Please enter the " + str(i + 1) + "th left nav item: ")
-    left_link_names.append(value)
+# html = generate_naved_template(left_link_names, right_link_names, item_number= 0, site_name= "Ass Fart!")
+#
+#
+#
+# # Added to write  it works!!
+#
+# # file = open('testfile.txt','w')
+# #
+# # file.write(html)
+# #
+# #
+# # file.close()
+# html_file_maker(html, "index")
 
 
+# print(html)
 
-for i in range(0, number_of_right_links):
-    value = input("Please enter the " + str(i + 1) + "th left nav item: ")
-    right_link_names.append(value)
+generate_template_package(left_link_names, right_link_names, site_name= "Ass Fart!")
 
-
-site_name = input("Please enter the name of your site: ")
-
-# Interactive Wizard - END
-
-
-if __name__ == "__main__":
-    main(left_link_names=left_link_names, right_link_names=right_link_names, site_name=site_name)
+print("Done!")

@@ -1,7 +1,7 @@
-{% extends "bp_base.html" %}
+{% extends "bp_base 2.html" %}
 {% block content %}
 
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse">     <!-- {{ navbar_class }} -->
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -23,15 +23,10 @@
                       {% for item in left_link_names %}
 
                             <li class= {% if left_link_names[item_number] == item %}"active" {% endif %} >
-
                                     <a href="#">
-
                                         {{item}}
-
                                         <span class="sr-only">(current)</span>
-
                                     </a>
-
                             </li>
 
                       {% endfor %}
@@ -50,13 +45,10 @@
                       {% for item in right_link_names %}
 
                             <li class= {% if ( checker )  and (item == combined_link_names[item_number] ) %}"active" {% endif %}>
-
                                     <a href="#">
-
                                         {{item}}
 
                                         <span class="sr-only">(current)</span>
-
                                     </a>
                             </li>
 
