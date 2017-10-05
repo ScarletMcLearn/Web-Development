@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% comment %} # mysite_project\mysite\books\templates\books\search_form.html {% endcomment %}
+
+<html>
+<head>
+    <title>Search</title>
+</head>
+<body>
+        {% block content %}
+
+        {% comment %} {% if error %}
+        <p style="color: red;">Please submit a search term.</p>
+    {% endif %} {% endcomment %}
+
+    {% if errors %}
+    <ul>
+        {% for error in errors %}
+        <li style="color: red;">{{ error }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+
+    <form action="" method="get">
+        <input type="text" name="q">
+        {% comment %} <input type="submit" value="Search"> {% endcomment %}
+
+        <button type="submit" class="btn btn-primary" >Search</button>
+    </form>
+    {% endblock %}
+</body>
+</html>

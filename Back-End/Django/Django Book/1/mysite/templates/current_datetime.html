@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+ 
+ {% comment %} <html>
+    <body>
+        It is now {{ current_date }}
+    </body>
+</html>
+It is now {{ current_date }}.  {% endcomment %}
+
+
+
+{% block title %}The current time{% endblock %}
+{% block content %}
+    <p>It is now {{ current_date }}.</p>
+{% endblock %}
