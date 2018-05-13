@@ -11,6 +11,19 @@
         <meta name="author" content="Colorlib" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
+        <!-- For Pagination   -->
+        <!-- Including BS Stylesheet -->
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+        <!-- Add Korar Pore deklam korte gele onno gulao affected hoy so nay  -->
+        
+        <!-- <style scoped class="example">
+            @import "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css";
+
+        .example{
+            
+        } -->
+        </style>
+
         <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" />
         <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700%7CLibre+Baskerville:400,400italic,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css"  href=" {% static 'css/clear.css' %} "/>
@@ -108,13 +121,13 @@
                                 <div class="cat-links">
                                     <ul>
                                         <li>
-                                            <!-- <a href="#">Crafting</a> -->
+                                            <a href="#">{{ post.category }}</a>
                                         </li>
                                     </ul>
                                 </div>
-                                <!-- <div class="entry-date published">February 12, 2016</div> -->
+                                <div class="entry-date published">{{ post.created_at }} </div>
                                 <h2 class="entry-title">
-                                    <a href="single.html">{{ post }}</a>
+                                    <a href="single.html">{{ post.text }}</a>
                                 </h2>
                                 <div class="excerpt">
                                     <!-- Now when I had mastered the language of this water and had come to know every trifling feature that bordered the great river as familiarly as I knew the letters of the alphabet, I had made a valuable acquisition. I still keep in mind a certain wonderful sunset which I witnessed when and steamboating<a class="read-more" href="single.html"></a> -->
@@ -125,6 +138,43 @@
                     </article>
 
                     {% endfor %}
+
+
+<!-- For Django Pagination FStart -->
+
+                    {% if is_paginated %}
+  <ul class="pagination">
+    {% if page_obj.has_previous %}
+      <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in paginator.page_range %}
+      {% if page_obj.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if page_obj.has_next %}
+      <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %}
+
+<!-- For Django Pagination FEnd -->
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </ul>
+  </nav>
 
 
                     <article id="post-2" class="blog-item-holder">
