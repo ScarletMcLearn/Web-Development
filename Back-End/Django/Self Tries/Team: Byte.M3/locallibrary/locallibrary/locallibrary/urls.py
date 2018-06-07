@@ -17,20 +17,23 @@ from django.contrib import admin
 from django.urls import path
 
 from django.conf.urls import include
+
 from django.views.generic import RedirectView
+
 from django.conf import settings
-from django.conf.urls.static import static
+from django.conf.urls.static import static 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('catalog/', include('catalog.urls')),
+    path('library/', include('catalog.urls')),
+    path('notice/', include('message_board.urls')),
     path('', RedirectView.as_view(url='/catalog/')),
     path('accounts/', include('django.contrib.auth.urls')),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) #Eita URL pattern e ekta path / url hishabe dewa jay na 
+    
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 
 
-from django.conf import settings
 from django.conf.urls import include, url
 
 if settings.DEBUG:
