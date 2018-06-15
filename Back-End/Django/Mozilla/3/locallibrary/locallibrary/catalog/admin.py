@@ -8,11 +8,13 @@ class AuthorAdmin(admin.ModelAdmin):
     # pass
     list_display = ('last_name', 'first_name', 'date_of_birth', 'date_of_death')
     fields = ['first_name', 'last_name', ('date_of_birth', 'date_of_death')]
+    search_fields = ['first_name', 'last_name', ]
 
 admin.site.register(Author, AuthorAdmin)
 
 class BookInstanceInline(admin.TabularInline):
     model = BookInstance
+    
 
 @admin.register(Book)
 class BookAdmin(admin.ModelAdmin):
@@ -24,7 +26,8 @@ class BookAdmin(admin.ModelAdmin):
 class BookInstanceAdmin(admin.ModelAdmin):
     # pass
     list_filter = ('status', 'borrower', 'due_back')
-
+    search_fields = ['book__title', ]       # search field using foreign key
+    
     fieldsets =(
         (None, 
             {
@@ -41,3 +44,5 @@ class BookInstanceAdmin(admin.ModelAdmin):
 admin.site.register(Genre)
 # admin.site.register(Book)
 # admin.site.register(BookInstance)
+
+

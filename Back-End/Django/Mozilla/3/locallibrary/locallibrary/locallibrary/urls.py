@@ -25,9 +25,9 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('catalog/', include('catalog.urls')),
+    path('library/', include('catalog.urls')),
     path('notice/', include('message_board.urls')),
-    path('', RedirectView.as_view(url='/catalog/')),
+    path('', RedirectView.as_view(url='/library/')),
     path('accounts/', include('django.contrib.auth.urls')),
     
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
