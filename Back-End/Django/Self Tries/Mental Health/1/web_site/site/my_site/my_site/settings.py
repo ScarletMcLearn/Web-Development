@@ -79,10 +79,10 @@ WSGI_APPLICATION = 'my_site.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'mental_db',
-        'USER': ('scarlet'),
-        'PASSWORD': ('Ratul2000'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'MENTAL_DB',
+        'USER': ('root'),
+        'PASSWORD': ('123451'),
         'HOST': '',
         'PORT': '',
     }

@@ -65,8 +65,8 @@ from django.db import models
 
 
 class Author(models.Model):
-    first_name = models.CharField(max_length=200)
-    last_name = models.CharField(max_length=200)
+    first_name = models.CharField(max_length=200, blank=True, null=True)
+    last_name = models.CharField(max_length=200, blank=True, null=True)
 
     def __str__(self):
         return self.first_name + self.last_name
@@ -76,12 +76,12 @@ class Author(models.Model):
 class ArticleInfo(models.Model):
     title = models.CharField(max_length=150)
     published_status = models.BooleanField(default=False)
-    source_link = models.URLField()
-    posted_on = models.DateField()
+    source_link = models.URLField(blank=True, null=True)
+    posted_on = models.DateField(blank=True, null=True)
     author = models.ForeignKey(Author, blank=True, null=True, on_delete=models.CASCADE)
-    credit = models.TextField()
+    credit = models.TextField(blank=True, null=True)
 
-    content = models.TextField()
+    content = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return self.title
@@ -104,7 +104,7 @@ class ImgUrl(models.Model):
 
 
 class TaggedText(models.Model):
-    content = models.TextField()
+    content = models.TextField(blank=True, null=True)
     c_tag = models.CharField(max_length=20)
     article = models.ForeignKey(ArticleInfo, blank=True, null=True, on_delete = models.CASCADE)
 
