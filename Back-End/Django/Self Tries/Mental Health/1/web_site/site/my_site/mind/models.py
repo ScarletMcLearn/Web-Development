@@ -99,6 +99,8 @@ class ImgUrl(models.Model):
     url = models.URLField()
     article = models.ForeignKey(ArticleInfo, on_delete=models.CASCADE, blank=True, null=True)
 
+    img_style = models.CharField(max_length=200, blank=True, null=True)
+
     def __str__(self):
         return self.url
 
