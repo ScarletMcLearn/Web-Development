@@ -1,0 +1,15 @@
+{% extends 'blog/layout.html' %}
+
+{% block title%}
+    Welcome - Account 
+{% endblock %}
+
+{% block body %}
+    <h1>Welcome User</h1>
+
+    <form action='{% url "account:login" %}' method='get'> 
+    <button type='submit'>Logout</button>
+    </form>
+
+     
+{% endblock  %}

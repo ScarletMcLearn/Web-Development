@@ -1,0 +1,23 @@
+{% extends 'blog/layout.html' %}
+
+{% block title%}
+    Blog Post 
+{% endblock %}
+
+{% block body %}
+    <h1 class='fs-1'>{{ post.title }}</h>
+
+    <p class='fs-2'>{{ post.body }}</p>
+
+    <ul>
+    {% for comment in  comments %}
+
+        <li>{{ comment.body}} </li>
+        <li>{{ comment.commented_date}} </li>
+    {% endfor %}
+    </ul>
+
+    {% include 'blog/forms/add_comment.html' %}
+
+
+{% endblock  %}

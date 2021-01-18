@@ -1,0 +1,25 @@
+{% extends 'blog/layout.html' %}
+
+{% block title%}
+    Blog Home 
+{% endblock %}
+
+{% block body %}
+    {% if latest_posts %}
+        <ul>
+        {% for post in latest_posts %}
+        <li><a href="{% url 'blog:detail'  post.slug %}">{{ post.title }}</a> - {{ post.body|truncatewords:"2" }}
+        {% if not post.edited_date %}
+        - Published : {{ post.published_date }}
+        {% else %}
+        - Updated : {{ post.edited_date }}
+        {% endif %}
+         </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+
+
+        {% include 'blog/forms/add_post.html' %}
+
+{% endblock  %}
