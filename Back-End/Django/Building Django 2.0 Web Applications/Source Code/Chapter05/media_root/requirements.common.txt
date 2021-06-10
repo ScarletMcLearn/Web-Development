@@ -1,4 +1,4 @@
-django==2.0b1
+django==2.2.24
 psycopg2
 Pillow<4.4.0
 python-memcached==1.58
